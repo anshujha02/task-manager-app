@@ -1,0 +1,164 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #5a9397;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.add-task {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.add-task input[type="text"],
+.add-task select {
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.add-task button {
+    padding: 10px 20px;
+    background-color:  #6eb1f0;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-task button:hover {
+    background-color: #66a3ad;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+li span {
+    flex: 1;
+}
+
+.complete {
+    text-decoration: line-through;
+    color: #888;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #6eb1f0;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+button:hover {
+    background-color: #66a3ad;
+}
+
+.editing {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.editing input[type="text"],
+.editing select {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.editing button {
+    padding: 10px 20px;
+    background-color: #6eb1f0;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.editing button:hover {
+    background-color:  #66a3ad;
+}
+
+/* New styles for due dates */
+.add-task input[type="date"] {
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* New styles for search and filtering */
+input[type="text"][placeholder="Search tasks..."],
+select {
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* New styles for notification button */
+button[ng-click="addNotification(task)"] {
+    padding: 8px 16px;
+    background-color: #6eb1f0;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+button[ng-click="addNotification(task)"]:hover {
+    background-color: #66a3ad;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .add-task input[type="text"],
+    .add-task select {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .add-task button {
+        width: 100%;
+    }
+}

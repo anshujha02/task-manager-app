@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="taskManagerApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" ng-controller="TaskController">
+        <h1>Task Manager</h1>
+        <div class="add-task">
+            <input type="text" ng-model="newTask.name" placeholder="Task Name">
+            <input type="date" ng-model="newTask.dueDate" placeholder="Due Date">
+            <select ng-model="newTask.priority">
+                <option value="">Priority</option>
+                <option ng-repeat="priority in priorities" value="{{priority}}">{{priority}}</option>
+            </select>
+            <button ng-click="addTask()">Add Task</button>
+        </div>
+        
+        <input type="text" ng-model="search" placeholder="Search tasks...">
+
+        <select ng-model="priorityFilter">
+            <option value="">All Priorities</option>
+            <option ng-repeat="priority in priorities" value="{{priority}}">{{priority}}</option>
+        </select>
+        <label><input type="checkbox" ng-model="completedFilter"> Show Completed Tasks</label>
+        
+        <ul>
+            <li ng-repeat="task in tasks | filter:searchFilter">
+                <span ng-class="{ 'complete': task.completed }">{{ task.name }}</span>
+                <span>{{ task.priority }}</span>
+                <span>{{ task.dueDate | date:'shortDate' }}</span>
+                <button ng-click="editTask(task)">Edit</button>
+                <button ng-click="deleteTask(task)">Delete</button>
+                <button ng-click="completeTask(task)" ng-if="!task.completed">Complete</button>
+                <button ng-click="addNotification(task)">Set Reminder</button>
+            </li>
+        </ul>
+
+        <div ng-if="editingTask" class="editing">
+            <input type="text" ng-model="editingTask.name">
+            <input type="date" ng-model="editingTask.dueDate">
+            <select ng-model="editingTask.priority">
+                <option value="">Priority</option>
+                <option ng-repeat="priority in priorities" value="{{priority}}">{{priority}}</option>
+            </select>
+            <button ng-click="saveTask()">Save</button>
+            <button ng-click="cancelEdit()">Cancel</button>
+        </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
